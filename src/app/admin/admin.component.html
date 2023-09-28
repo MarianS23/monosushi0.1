@@ -1,0 +1,14 @@
+<div class="spacer-md"></div>
+<div class="content">
+    <div class="left">
+        <input type="button" class="blogsBtn" value="Категорії" [routerLink]="[ 'admin-category' ]" routerLinkActive="admin-active">
+        <input type="button" class="blogsBtn" value="Акції" [routerLink]="[ 'admin-discount' ]" routerLinkActive="admin-active">
+        <input type="button" class="blogsBtn" value="Доставка" [routerLink]="[ 'admin-delivery' ]" routerLinkActive="admin-active">
+        <input type="button" class="blogsBtn" value="Продукти" [routerLink]="[ 'admin-product' ]" routerLinkActive="admin-active">
+        <input type="button" class="blogsBtn" value="Вийти" (click)="logOut()">
+    </div>
+    <div class="right">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+

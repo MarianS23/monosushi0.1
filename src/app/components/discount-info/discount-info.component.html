@@ -1,0 +1,20 @@
+<div class="breadcrumbs-nav">
+    <span class="nav-text" [routerLink]="[ '/' ]" routerLinkActive="active">Головна</span>
+    <span class="nav-circle">•</span>
+    <span class="nav-text" [routerLink]="[ '/discount/']" routerLinkActive="active">Акції</span>
+    <span class="nav-circle">•</span>
+    <span class="nav-text">{{ currentDiscount.name }}</span>
+</div>
+<div class="wrapper">
+    <div class="spacer-md"></div>
+    <div class="route-info"></div>
+    <div class="spacer-md"></div>
+    <div class="discount-info">
+        <div class="discount-name">
+            <span class="discount-title">{{currentDiscount.name}}</span>
+        </div>
+        <ul class="discount-terms">
+            <li class="discount-term" *ngFor="let term of terms">{{term}}</li>
+        </ul>
+    </div>
+</div>

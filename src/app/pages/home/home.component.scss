@@ -1,0 +1,102 @@
+@import'../../shared/styles/variables.scss';
+.spacer-md {
+    height: 40px;
+    clear: both;
+    width: 100% !important;
+}
+
+.container {
+    width: 100%;
+    height: fit-content;
+}
+
+.wrapper {
+    width:90%;
+    height: inherit;
+    margin: 0 auto;
+
+    .tabs{
+        width: 100%;
+        height: fit-content;
+        margin: 0 auto;
+        .tab-list{
+            list-style: none;
+            .tab{
+                box-sizing: border-box;
+                position: relative;
+                float: left;
+                width: 14%;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                border: 1px solid rgb(117, 117, 117);
+                transition: 0.5s;
+                
+                &:hover{
+                    border: transparent;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 5px;
+                        background-color: $blueColor;
+                    }
+                }
+                
+
+
+            }
+        }
+    }
+    .article {
+        margin-bottom: 20px;
+        h1,
+        h2 {
+            text-align: center;
+            font: inherit;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 64px;
+            line-height: 1em;
+        }
+
+        h2 {
+            font-size: 42px;
+            line-height: 1.2em;
+        }
+        p,ul li{
+            color: rgb(117, 117, 117);
+            font-size: 18px;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+        ul{
+            list-style: none;
+            li::before{
+                color: $blueColor;
+                content: "\2022";
+                font-weight: bold;
+                display: inline-block;
+                margin-left: -1em;
+                width: 1em;
+              }
+        }
+        a{
+            text-decoration: none;
+            color: $blueColor;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+
+        
+    }
+}

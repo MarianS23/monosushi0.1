@@ -1,0 +1,216 @@
+@import '../../shared/styles/variables.scss';
+@import '../admin.component.scss';
+
+.wrapper{
+    width: 80vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.addBtn,.saveBtn{
+    align-self: flex-start;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid $blueColor;
+    background-color: #fff;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 5px;
+    cursor: pointer;
+    &:hover{
+        background-color: $blueColor;
+    }
+    &:active {
+        transform: scale(0.98);
+        /* Scaling button to 0.98 to its original size */
+       
+    }
+}
+.saveBtn:disabled{
+    background-color: #c8dae9;
+    color: grey;
+    border: none;
+}
+
+.add-discount-form{
+    width: 60%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding-right: 2px;
+    // justify-content: space-between;
+    .text-input{
+        width: 47.5%;
+        height: 40px;
+    }
+    .file-input{
+        width: 97%;
+        height: 40px;
+        line-height: 40px;
+    }
+    .textarea{
+        width: 97%;
+        height: 80px;
+        resize: none;
+        padding-top: 10px;
+    }
+    .discount{
+        border: 1px solid rgb(219, 219, 219);
+        border-radius: 10px;
+        padding-left: 15px;
+        margin: 5px;
+        
+        &:focus{
+            outline-color: $blueColor;
+        }
+
+    }
+    .progress{
+        width: 97%;
+        height: 5px;
+        margin: 10px auto;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        margin: 5px;
+        .progress-bar{
+            width:0%;
+            height: 5px;
+            border-radius: 10px;
+            background-color: $blueColor;
+        }
+    }
+    .loadedImgBlock{
+        width: 97%;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: column;
+        .loadedImg{
+            height: 300px;
+            width: fit-content;
+        }
+        .deleteImgBtn{
+            width: 30px;
+            height: 30px;
+            padding-top: 2px;
+            margin-top: 20px;
+            border: 1px solid $blueColor;
+            border-radius: 10px;
+            background-color: white;
+            &:hover{
+                background-color: $blueColor;
+            }
+        }
+        
+    }
+}
+
+
+
+.action-block{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    .action-btn{
+        width: fit-content;
+        background-color: white;
+        border: none;
+        color: $blueColor;
+        margin: 3px;
+        font: inherit;
+        font-weight: 600;
+        &:hover{
+            color: #5caff8;
+        }
+    }
+}
+
+
+.formBlock {
+    width: 100%;
+    height: fit-content;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formBlock .formBlockInputs {
+    width: 99%;
+    height: 30px;
+    padding-left: 5px;
+}
+
+.formBlock .formBlockArea {
+    width: 99%;
+    height: 60px;
+    padding-left: 5px;
+    resize: vertical;
+    max-height: 120px;
+    min-height: 60px;
+    margin: 10px 0;
+}
+
+
+
+
+.formBlock .formBlockBtn {
+    margin: 10px 0 0 3px;
+    align-self: flex-start;
+}
+
+
+
+.tableBlock {
+    width: 100%;
+    height: fit-content;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.tableBlock table {
+    width: 100%;
+    height: fit-content;
+    border-collapse: collapse;
+}
+
+.tableBlock table thead tr {
+    height: 45px;
+    width: 80%;
+}
+
+
+
+.tableBlock table thead tr th {
+    border-bottom: 2px solid $blueColor;
+    text-align: start;
+    width: 15%;
+    font-weight: normal;
+}
+
+.tableBlock table tbody tr {
+    height: 100px;
+    width: 80%;
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.tableBlock table tbody tr th {
+    height: 45px;
+    text-align: start;
+}

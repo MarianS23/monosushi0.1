@@ -1,0 +1,204 @@
+@import'../../shared/styles/variables.scss';
+.spacer-md {
+    height: 40px;
+    clear: both;
+    width: 100% !important;
+}
+
+.center-info {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 550px;
+
+    .title {
+        position: relative;
+        display: inline-block;
+        padding-top: 10px;
+        color: #252525;
+        font-weight: bold;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+            width: 100%;
+            height: 5px;
+            background: #b5d8f7;
+        }
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    h2,
+    .h2 {
+        font-size: 42px;
+        line-height: 1.2em;
+    }
+}
+
+.wrapper{
+    width:90%;
+    height: inherit;
+    margin: 0 auto;
+    .tabs{
+        width: 100%;
+        height: fit-content;
+        margin: 0 auto;
+        .tab-list{
+            list-style: none;
+            .tab{
+                box-sizing: border-box;
+                position: relative;
+                float: left;
+                width: 14%;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                border: 1px solid rgb(117, 117, 117);
+                transition: 0.5s;
+                
+                &:hover{
+                    border: transparent;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 5px;
+                        background-color: $blueColor;
+                    }
+                }
+                
+    
+    
+            }
+        }
+    }
+.tabs-content{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .item-card{
+        width: 24%;
+        height: 370px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        &:hover{
+            border-color: $blueColor;
+        }
+        .img-box{
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                cursor: pointer;
+            }
+        }
+        
+        h3{
+            margin-top: 50px;
+            cursor: pointer;
+        }
+        .item-info{
+            width: 100%;
+            height: 30px;
+            margin-top: 15px;
+            
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .item-ingred{
+                width: 80%;
+                height: fit-content;
+                color: rgb(142, 142, 142);
+                font-size: 16px;
+                
+                
+            }
+            .item-weight{
+                width: 20%;
+                height: fit-content;
+                font-weight: 700;
+                
+                
+            }
+        }
+        .item-order{
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            .item-price{
+                font-weight: 700;
+                width: 30%;
+                text-align: center;
+            }
+            .item-number{
+                width: 30%;
+                height: 40px;
+                border: 1px solid rgb(209, 209, 209);
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                button{
+                    width: 30%;
+                    height: fit-content;
+                    background-color: white;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    &:hover{
+                       font-size: 21px;
+                       font-weight: 600;
+                        
+                    }
+                }
+                span{
+                    width: 30%;
+                    height: fit-content;
+                    text-align: center;
+                }
+            }
+            .item-order-btn{
+                width: 30%;
+                height: 40px;
+                border-radius: 10px;
+                font-size: 11px;
+                text-transform: uppercase;
+                font-weight: bold;
+                border: 2px solid transparent;
+                background-color: $blueColor;
+                &:hover{
+                    border-color: $blueColor;
+                    background-color: white;
+                }
+            }
+        }
+    }
+}
+   
+}

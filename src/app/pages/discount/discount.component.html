@@ -1,0 +1,20 @@
+<div class="main">
+    <div class="spacer-md"></div>
+    <div class="center-info">
+        <h1 class="h2 title text-center">Акції</h1>
+    </div>
+    <div class="spacer-md"></div>
+    <div class="wrapper">
+        <div class="discount-card" *ngFor="let discount of discounts">
+            <div class="main-hover">
+                <figure>
+                    <img [src]="discount.imagePath" [routerLink]="['/discount/'+discount.id]">
+                </figure>
+                <h1 class="title" [routerLink]="['/discount/'+discount.id]">{{discount.name}}</h1>
+            </div>
+            <div class="blue-line"></div>
+            <input type="button" class="more-info-btn" [routerLink]="['/discount/'+discount.id]" value="Дізнатись більше">
+        </div>
+    </div>
+</div>
+<!-- ['/product/'+product.category.path,product.id] -->

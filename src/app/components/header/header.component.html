@@ -1,0 +1,129 @@
+<header class="header">
+    <div class="header-wrapper popup-close">
+        <div class="header-logo" [routerLink]="[ '/' ]" routerLinkActive="active">
+            <img src="https://monosushi.com.ua/wp-content/uploads/2021/06/logo.svg" alt="">
+        </div>
+        <div class="navbar">
+            <ul class="nav">
+                <li [routerLink]="[ '/discount' ]" routerLinkActive="active">
+                    <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="">
+                    <span>Акції</span>
+                </li>
+                <li [routerLink]="[ '/product/roll' ]" routerLinkActive="active">
+                    <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="">
+                    <span>Роли</span>
+                </li>
+                <li [routerLink]="[ '/product/sets' ]" routerLinkActive="active">
+                    <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg" alt="">
+                    <span>Сети</span>
+                </li>
+                <li [routerLink]="[ '/product/drinks' ]" routerLinkActive="active">
+                    <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg" alt="">
+                    <span>Напої</span>
+                </li>
+                <li [routerLink]="[ '/product/souce' ]" routerLinkActive="active">
+                    <img src="https://monosushi.com.ua/wp-content/uploads/2021/09/icon.svg" alt="">
+                    <span>Соуси</span>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="burger-menu" (click)="toggleBurgerMenu()">
+            <div class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                </svg></div>
+
+            <div class="burger-menu-content" *ngIf="clickBurger">
+                <a [routerLink]="[ '/delivery' ]" routerLinkActive="active">Доставка та оплата</a>
+                <a [routerLink]="[ '/about' ]" routerLinkActive="active">Про нас</a>
+                <a [routerLink]="[ '/discount' ]" routerLinkActive="active">Акції на суші</a>
+            </div>
+        </div>
+
+
+        <div class="header-callback">
+            <button>
+                <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg" alt="">
+            </button>
+        </div>
+        <div class="header-info">
+            <a class="header-phone" href="tel:+380978780837">+380978780837</a>
+            <div class="header-worktime">
+                Працюємо з
+                <b>11:00</b>
+                до
+                <b>22:30</b>
+            </div>
+        </div>
+        <div class="header-sign-in" *ngIf="!isGuest && !isAdmin" (click)="openSignInModal()">
+            <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="">
+        </div>
+        <div class="header-sign-in-admin" *ngIf="isAdmin" [routerLink]="['/'+userUrl]">
+            <h2>{{userName}}</h2>
+        </div>
+        <div class="header-sign-in-guest" *ngIf="isGuest" [routerLink]="['/'+userUrl]">
+            <h2>{{userName}}</h2>
+        </div>
+        <div class="modal-sign-in-container" *ngIf="clickSignIn">
+                <form class="modal-sign-in" [formGroup]="authForm" (ngSubmit)="login()">
+                    <button class="close-modal-btn" (click)="closeSignInModal()">
+                        <span class="material-symbols-outlined">
+                            close
+                            </span>
+                    </button>
+                    <h1>Увійти</h1>
+                    <input type="text" formControlName="email" name="email" placeholder="Email">
+                    <input type="password" formControlName="password" name="password" placeholder="Password">
+                    <input class="sign-in-btn" type="submit" value="Підтвердити" [disabled]="authForm.invalid">
+                    <div class="additionBlock">
+                        <button class="additionBtn">Забули пароль</button>
+                        <button class="additionBtn">Реєстрація</button>
+                    </div>
+                </form>
+        </div>
+        
+
+        <div class="header-basket" (click)="toggleBasket()">
+            <i>
+                <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="">
+                <span>{{totalCount}}</span>
+            </i>
+            <div class="empty-basket-price">
+                <b>{{totalPrice}}</b>
+                <span>грн</span>
+            </div>
+        </div>
+
+    </div>
+</header>
+<div class="modal-container" *ngIf="clickBasket">
+    <div class="modal">
+        <div class="item-card-busket" *ngFor="let order of orders; index as i">
+            <figure>
+                <img [src]="order.imagePath">
+            </figure>
+            <h3>{{order.name}}</h3>
+            <div class="item-order">
+                <div class="item-number">
+                    <button (click)="updateProductCount(order, false,i)">-</button>
+                    <span>{{order.count}}</span>
+                    <button (click)="updateProductCount(order, true,i)">+</button>
+                </div>
+                <span class="item-price">{{order.price * order.count}} грн</span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" (click)="deleteCurrentItem(i)"
+                    viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
+                </svg>
+            </div>
+
+        </div>
+        <div class="order-info">
+            <span class="order-price">Сума:<h4>{{totalPrice}}</h4>грн</span>
+            <input class="order-btn" type="button" value="Оформити замовлення">
+        </div>
+    </div>
+</div>

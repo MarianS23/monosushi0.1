@@ -1,0 +1,61 @@
+@import '../shared/styles/variables.scss';
+.spacer-md {
+    height: 40px;
+    clear: both;
+    width: 100% !important;
+}
+.admin-active{
+    border-top: 3px solid $blueColor;
+}
+
+
+
+.content {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    color: rgb(117, 117, 117);
+}
+
+.content .left {
+    width: 16%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.content .right {
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.blogsBtn {
+    width: 90%;
+    height: 60px;
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-left: transparent;
+    border-top: transparent;
+    border-radius: 2px;
+    font-size: 16px;
+    &:hover{
+        color: black;
+        font-weight: bold;
+    }
+    
+}
+
+
+
+

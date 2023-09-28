@@ -1,0 +1,56 @@
+<div class="main">
+    <div class="spacer-md"></div>
+    <div class="center-info">
+        <h1 class="h2 title text-center">{{currentName}}</h1>
+    </div>
+    <div class="spacer-md"></div>
+    <div class="wrapper">
+        <div class="tabs">
+            <ul class="tab-list">
+                <li class="tab">
+                    <span>Всі</span>
+                </li>
+                <li class="tab">
+                    <span>Філадельфія</span>
+                </li>
+                <li class="tab">
+                    <span>Каліфорнія</span>
+                </li>
+                <li class="tab">
+                    <span>Макі</span>
+                </li>
+                <li class="tab">
+                    <span>Запечені</span>
+                </li>
+                <li class="tab">
+                    <span>Фірмові</span>
+                </li>
+                <li class="tab">
+                    <span>Преміум</span>
+                </li>
+            </ul>
+        </div>
+        <div class="spacer-md"></div>
+        <div class="tabs-content">
+            <div class="item-card" *ngFor="let product of products">
+                <div class="img-box">
+                    <img [src]="product.imagePath" [routerLink]="['/product/'+product.category.path,product.id]">
+                </div>
+                <h3 [routerLink]="['/product/'+product.category.path,product.id]">{{product.name}}</h3>
+                <div class="item-info">
+                    <span class="item-ingred">{{product.ingredients}}</span>
+                    <span class="item-weight">{{product.weight}}г</span>
+                </div>
+                <div class="item-order">
+                    <span class="item-price">{{product.price * product.count}}грн</span>
+                    <div class="item-number">
+                        <button (click)="productCount(product, false)">-</button>
+                        <span>{{product.count}}</span>
+                        <button (click)="productCount(product, true)">+</button>
+                    </div>
+                    <input class="item-order-btn" type="button" value="Замовити" (click)="addToBasket(product)">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
